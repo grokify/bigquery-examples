@@ -1,3 +1,4 @@
+#standardSQL
 -- Query Popular Stack Overflow Tags
 SELECT
   tag,
