@@ -22,7 +22,6 @@ FROM (
       AND DATE(v.creation_date) < DATE('2015-06-29')
   ), UNNEST(tag) AS tag
   GROUP BY tag, vote_type_id
-  ORDER BY count DESC
 ) AS tagreputation
 GROUP BY tag
 ORDER BY reputation DESC
