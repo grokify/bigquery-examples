@@ -1,6 +1,6 @@
 SELECT
   tag,
-  SUM(CAST(reputation AS int64)) AS reputation
+  SUM(reputation) AS reputation
 FROM (
   SELECT
     tag AS tag,
