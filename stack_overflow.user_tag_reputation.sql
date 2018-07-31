@@ -8,7 +8,7 @@ SELECT
 FROM
 (
   SELECT
-    tag AS tag,
+    tag,
     COUNT(tag) AS count
   FROM
   (
@@ -28,7 +28,7 @@ FROM
 FULL OUTER JOIN 
 (
   SELECT
-    tag AS tag,
+    tag,
     COUNT(tag) AS count
   FROM
   (

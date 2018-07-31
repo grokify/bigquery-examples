@@ -3,7 +3,7 @@ SELECT
   SUM(reputation) AS reputation
 FROM (
   SELECT
-    tag AS tag,
+    tag,
     COUNT(tag) AS count,
     vote_type_id,
     IF(vote_type_id=1, COUNT(tag)*15, IF(vote_type_id=2, COUNT(tag)*10 ,0)) AS reputation
