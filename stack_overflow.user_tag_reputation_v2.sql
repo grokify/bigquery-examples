@@ -7,8 +7,7 @@ FROM (
     COUNT(tag) AS count,
     vote_type_id,
     IF(vote_type_id=1, COUNT(tag)*15, IF(vote_type_id=2, COUNT(tag)*10 ,0)) AS reputation
-  FROM
-  (
+  FROM (
     SELECT
       SPLIT(q.tags, '|') AS tag,
       v.vote_type_id

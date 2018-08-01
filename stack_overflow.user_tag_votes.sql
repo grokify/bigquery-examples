@@ -3,8 +3,7 @@
 SELECT
   tag,
   COUNT(tag) AS count
-FROM
-(
+FROM (
   SELECT SPLIT(q.tags, '|') AS tag
   FROM `bigquery-public-data.stackoverflow.votes` v
     LEFT JOIN `bigquery-public-data.stackoverflow.posts_answers` a

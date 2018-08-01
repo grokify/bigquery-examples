@@ -3,8 +3,7 @@
 SELECT
   tag,
   COUNT(tag) AS count
-FROM
-(
+FROM (
   SELECT SPLIT(tags, '|') AS tag
   FROM `bigquery-public-data.stackoverflow.posts_questions`
   WHERE DATE(creation_date) > '2018-01-01'

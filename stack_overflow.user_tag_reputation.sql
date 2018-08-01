@@ -5,13 +5,11 @@ SELECT
   (votes.count * 10 + accepts.count * 15) AS reputation,
   votes.count AS vote_count,
   accepts.count AS accept_count
-FROM
-(
+FROM (
   SELECT
     tag,
     COUNT(tag) AS count
-  FROM
-  (
+  FROM   (
     SELECT SPLIT(q.tags, '|') AS tag
     FROM `bigquery-public-data.stackoverflow.votes` v
       LEFT JOIN `bigquery-public-data.stackoverflow.posts_answers` a
@@ -25,13 +23,11 @@ FROM
   GROUP BY tag
   ORDER BY count DESC
 ) AS votes
-FULL OUTER JOIN 
-(
+FULL OUTER JOIN (
   SELECT
     tag,
     COUNT(tag) AS count
-  FROM
-  (
+  FROM (
     SELECT SPLIT(q.tags, '|') AS tag
     FROM `bigquery-public-data.stackoverflow.votes` v
       LEFT JOIN `bigquery-public-data.stackoverflow.posts_answers` a
