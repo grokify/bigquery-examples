@@ -12,15 +12,11 @@ FROM
   CROSS JOIN
   (
     SELECT
-      DATETIME_SUB(DATETIME(latest.creation_date), INTERVAL 3 MONTH) AS start,
-      latest.creation_date AS `end`
-    FROM
-    (
-      SELECT creation_date
-      FROM `bigquery-public-data.stackoverflow.posts_questions`
-      ORDER BY creation_date DESC
-      LIMIT 1
-    ) AS latest
+      DATETIME_SUB(DATETIME(creation_date), INTERVAL 3 MONTH) AS start,
+      creation_date AS `end`
+    FROM `bigquery-public-data.stackoverflow.posts_questions`
+    ORDER BY creation_date DESC
+    LIMIT 1
   ) AS dates
   WHERE DATETIME(q.creation_date) >= dates.start
 ), UNNEST(tag) AS tag
