@@ -11,9 +11,7 @@ FROM
   FROM `bigquery-public-data.stackoverflow.posts_questions` q
   CROSS JOIN
   (
-    SELECT
-      DATETIME_SUB(DATETIME(creation_date), INTERVAL 3 MONTH) AS start,
-      creation_date AS `end`
+    SELECT DATETIME_SUB(DATETIME(creation_date), INTERVAL 3 MONTH) AS start
     FROM `bigquery-public-data.stackoverflow.posts_questions`
     ORDER BY creation_date DESC
     LIMIT 1
