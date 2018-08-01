@@ -7,8 +7,7 @@ SELECT
   CAST(COUNT(tag) / 90 / 24 AS INT64) AS count_per_hour
 FROM
 (
-  SELECT
-    SPLIT(q.tags, '|') AS tag
+  SELECT SPLIT(q.tags, '|') AS tag
   FROM `bigquery-public-data.stackoverflow.posts_questions` q
   CROSS JOIN
   (
@@ -17,7 +16,8 @@ FROM
       latest.creation_date AS `end`
     FROM
     (
-      SELECT creation_date FROM `bigquery-public-data.stackoverflow.posts_questions`
+      SELECT creation_date
+      FROM `bigquery-public-data.stackoverflow.posts_questions`
       ORDER BY creation_date DESC
       LIMIT 1
     ) AS latest
