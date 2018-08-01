@@ -1,5 +1,5 @@
 #standardSQL
--- Query Popular Stack Overflow Tags Last 3 Months
+-- Question Velocity for Popular Tags
 SELECT
   tag,
   COUNT(tag) AS count_last_3_months,
