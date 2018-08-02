@@ -1,7 +1,7 @@
 #standardSQL
 -- answer count for most recnet users with 2000 rep
 SELECT
-  owner_user_id,
+  owner_user_id AS user_id,
   COUNT(id) AS answer_count,
   CONCAT("https://stackoverflow.com/users/", CAST(owner_user_id AS STRING)) AS user_url
 FROM `bigquery-public-data.stackoverflow.posts_answers`
